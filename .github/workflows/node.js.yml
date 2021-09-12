@@ -10,6 +10,7 @@ jobs:
     steps:
         
     - uses: actions/checkout@v2
+    
     - name: Use Node.js 14
       uses: actions/setup-node@v2
       with:
@@ -22,13 +23,13 @@ jobs:
         key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
     
     - name: npm ci
-    - run: npm ci
+      run: npm ci
     
     - name: npm run lint
-    - run: npm run lint
+      run: npm run lint
     
     - name: npm test
-    - run: npm test
+      run: npm test
     
     - name: npm run e2e
-    - run: npm run e2e
+      run: npm run e2e
