@@ -27,12 +27,12 @@
     ]
   },
   "projects": {
-    "todo": {
+    "todos": {
       "tags": []
     },
-    "todo-e2e": {
+    "todos-e2e": {
       "tags": [],
-      "implicitDependencies": ["todo"]
+      "implicitDependencies": ["todos"]
     }
   }
 }
