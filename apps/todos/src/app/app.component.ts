@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 interface Todo {
@@ -10,11 +11,17 @@ interface Todo {
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  todos: Todo[] = [{ title: 'Todo 1' }, { title: 'Todo 2' }];
+  todos: Todo[] = [];
+
+  constructor(private http: HttpClient) {
+    this.fetch();
+  }
 
   addTodo() {
-    this.todos.push({
-      title: `New todo ${Math.floor(Math.random() * 1000)}`,
-    });
+    this.http.post('/api/todos', {}).subscribe(() => this.fetch());
+  }
+
+  fetch(): void {
+    this.http.get<Todo[]>('/api/todos').subscribe(todos => this.todos = todos);
   }
 }

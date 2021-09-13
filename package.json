@@ -8,7 +8,7 @@
     "start": "nx serve",
     "build": "nx build",
     "lint": "nx workspace-lint && ng lint",
-    "test": "nx test",
+    "test": "nx test --coverage",
     "e2e": "ng e2e --headless"
   },
   "private": true,
