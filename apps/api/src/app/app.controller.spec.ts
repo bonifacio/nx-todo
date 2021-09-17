@@ -14,9 +14,16 @@ describe('AppController', () => {
   });
 
   describe('getData', () => {
-    it('should return "Welcome to api!"', () => {
+    it('should return an empty list', () => {
       const appController = app.get<AppController>(AppController);
-      expect(appController.getData()).toEqual({ message: 'Welcome to api!' });
+      const todos = appController.getData();
+      expect(todos.length).toEqual(0);
+    });
+    it('should add 1 todo', () => {
+      const appController = app.get<AppController>(AppController);
+      appController.addTodo();
+      const todos = appController.getData();
+      expect(todos.length).toEqual(1);
     });
   });
 });
